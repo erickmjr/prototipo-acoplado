@@ -1,0 +1,45 @@
+service: prototipo-acoplado
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  region: us-east-1
+  environment:
+    TABELA_RESTAURANTES: ${self:service}-restaurantes
+    TABELA_INSUMOS: ${self:service}-insumos
+
+functions:
+  criarRestaurante:
+    handler: src/handlers/criar-restaurante.handler
+    events:
+      - httpApi:
+          path: /restaurantes
+          method: post
+
+  buscarRestaurante:
+    handler: src/handlers/buscar-restaurante.handler
+    events:
+      - httpApi:
+          path: /restaurantes/{id}
+          method: get
+
+  editarRestaurante:
+    handler: src/handlers/editar-restaurante.handler
+    events:
+      - httpApi:
+          path: /restaurantes/{id}
+          method: patch
+
+  adicionarInsumo:
+    handler: src/handlers/adicionar-insumo.handler
+    events:
+      - httpApi:
+          path: /restaurantes/{id}/insumos
+          method: post
+
+  editarInsumo:
+    handler: src/handlers/editar-insumo.handler
+    events:
+      - httpApi:
+          path: /insumos/{insumoId}
+          method: patch

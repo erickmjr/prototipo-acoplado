@@ -1,0 +1,29 @@
+{
+  "name": "prototipo-acoplado",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Protótipo A — CRM de restaurantes com design acoplado (Fat Lambda)",
+  "author": "Érick Mello Junior",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "vitest run",
+    "test:cov": "vitest run --coverage",
+    "metrica:acoplamento": "depcruise src --config .dependency-cruiser.cjs",
+    "metrica:grafo": "depcruise src --config .dependency-cruiser.cjs --output-type dot"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.700.0",
+    "@aws-sdk/lib-dynamodb": "^3.700.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^22.10.0",
+    "@vitest/coverage-v8": "^2.1.8",
+    "aws-sdk-client-mock": "^4.1.0",
+    "dependency-cruiser": "^16.8.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
