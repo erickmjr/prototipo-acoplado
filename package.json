@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
     "metrica:acoplamento": "depcruise src --config .dependency-cruiser.cjs",
-    "metrica:grafo": "depcruise src --config .dependency-cruiser.cjs --output-type dot"
+    "metrica:grafo": "depcruise src --config .dependency-cruiser.cjs --output-type dot",
+    "metricas": "node scripts/coletar-metricas.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.700.0",

@@ -58,6 +58,7 @@ npm run build          # verificação de tipos
 npm test               # testes unitários
 npm run test:cov       # testes com relatório de cobertura
 npm run metrica:acoplamento   # violações da regra de dependência
+npm run metricas       # coleta consolidada das métricas da pesquisa
 ```
 
 ## Métricas coletadas
@@ -66,3 +67,8 @@ A cobertura de testes é gerada pelo Vitest em `coverage/`. A contagem de
 violações da regra de dependência é produzida pelo dependency-cruiser,
 configurado em `.dependency-cruiser.cjs` para reportar todo módulo que contenha
 regra de negócio e importe diretamente o SDK do provedor de nuvem.
+
+O script `scripts/coletar-metricas.mjs` consolida os três indicadores: a
+cobertura da lógica de negócio, a quantidade de linhas dedicadas a simular
+serviços externos nos arquivos de teste e o número de violações da regra de
+dependência.
